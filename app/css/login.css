@@ -1,0 +1,49 @@
+#divID_login{
+	position:absolute;
+	left: 50%;
+	margin-left: -111px; /* - ((50% width) + padding + border) */
+	padding: 10px;
+	font-family: "Arial";
+	font-size: 21pt;
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+	overflow: hidden;
+	width: 200px;
+	border-radius: 0px 0px 6px 6px;
+}
+.inputfield{
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: 12px; /* (input-border left + input-border right) + (input-padding left + input-padding right) */
+}
+input{
+	outline: none;
+	border: 2px solid rgba(149, 165, 166,1.0);
+	border-radius: 4px;
+	width: 100%;
+	padding: 4px;
+	font-size: 16pt;
+	transition-property: border;
+	transition-duration: 0.5s;
+}
+input[type=submit]{
+	-webkit-appearance: none;
+}
+input:focus{
+	border: 2px solid rgba(108, 213, 192, 1.0);
+}
+#login{
+	transition-property: color;
+	transition-duration: 0.5s;
+}
+
+
+
+/*--------------------------------------------------*/
+/* MOBILE DEVICES <=480px                           */
+/*--------------------------------------------------*/
+/*@media(max-device-width: 480px){
+  div {
+    color: blue;
+  }
+}*/

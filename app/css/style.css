@@ -1,0 +1,46 @@
+body{
+	margin: 0px;
+	background: #ffffff;
+}
+#popup-background{
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+	background: black;
+	display: none;
+}
+
+/*--------------------------------------------------*/
+/* CURSOR                                           */
+/*--------------------------------------------------*/
+.pointer{
+	cursor: pointer;
+}
+
+/*--------------------------------------------------*/
+/* COLORS                                           */
+/*--------------------------------------------------*/
+.blue{
+	color: blue;
+}
+/*--------------------------------------------------*/
+/* TEXT STYLE                                       */
+/*--------------------------------------------------*/
+.center{
+	text-align:center;
+}
+.right{
+	text-align:right;
+}
+.bold{
+	font-weight:bold;
+}
+/*--------------------------------------------------*/
+/* DISPLAY                                          */
+/*--------------------------------------------------*/
+.inline-block{
+	display: inline-block;
+}
