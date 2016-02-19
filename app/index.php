@@ -6,6 +6,9 @@ require_once('functions.inc.php');
 
 $behavior = new loginCheck;
 
+($_GET['lang']) ? $lang=$_GET['lang'] : $lang='en';
+$action = $_GET['action'];
+
 #echo 'Your current IP-Adress: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br />' . "\n";
 #if ($_SERVER['REMOTE_ADDR'] == '77.20.104.216'){
 #	echo 'Hier entsteht eine Web-Applikations Testumgebung des <b>Schutzgemeinschaft Wallheckenlandschaft Leer e.V.</b>';
@@ -13,7 +16,7 @@ $behavior = new loginCheck;
 
 ?>
 <!DOCTYPE html>
-<html lang='de'>
+<html lang='<?php echo $lang; ?>'>
 	<head>
 		<title></title>
 		<meta charset='utf-8' />
@@ -21,6 +24,7 @@ $behavior = new loginCheck;
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
 		<meta name='author' content='Markus Beier' />
 		<meta http-equiv='content-type' content='text/html; charset=utf-8' />
+		<script language='javascript' type='text/javascript' src='js/localStorage.js'></script>
 <?php
 	if($behavior->status() == 1){
 ?>
@@ -33,20 +37,19 @@ $behavior = new loginCheck;
 		<link href='css/style.css' type='text/css' rel='stylesheet' />
 		<link href='css/login.css' type='text/css' rel='stylesheet' />
 		<script language='javascript' type='text/javascript' src='js/login.js'></script>
+		<script language='javascript' type='text/javascript' src='js/miscellaneous.js'></script>
 		<script language='javascript' type='text/javascript' src='js/opacity.js'></script>
 		<script language='javascript' type='text/javascript' src='js/resize.js'></script>
 <?php
 	}
 ?>
-		<script language='javascript' type='text/javascript' src='js/localStorage.js'></script>
-		<script language='javascript' type='text/javascript' src='js/miscellaneous.js'></script>
 	</head>
 	<body>
 		<?php
 			if($behavior->status() == 0 or $behavior->status() == 2){
 				include('login.php');
 			} else if($behavior->status() == 1){
-				include('admin.php');
+				include('sites/admin.php/admin.php');
 			}
 		?>
 		

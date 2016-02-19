@@ -36,7 +36,6 @@
 				  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<span class="lang-sm lang-lbl-full"
 					<?php
-						($_GET['lang']) ? $lang=$_GET['lang'] : $lang='en';
 						echo 'lang=\'' . $lang . '\'';
 					?>></span> <span class="caret"></span>
 				  </a>
@@ -52,7 +51,13 @@
 					</script> <span class="caret"></span>
 				  </a>
 				  <ul class="dropdown-menu">
-					<li><a href="">Action</a></li>
+					<li class="dropdown-header">Signed in as</li>					
+					<li><a href="">
+						  <b><script language='javascript' type='text/javascript'>
+							document.write(getLocalData('username'));
+						  </script></b>
+						</a></li>
+					<li role="separator" class="divider"></li>
 					<li><a href="">Another action</a></li>
 					<li><a href="">Something else here</a></li>
 					<li role="separator" class="divider"></li>
