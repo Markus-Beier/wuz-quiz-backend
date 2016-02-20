@@ -6,7 +6,7 @@ var x = $(this).closest('td').children('span').attr('id');
 var y = $('.input-sm').val();
 var z = $(this).closest('td').children('span');
 $.ajax({
-url: "process.php?id="+x+"&data="+y,
+url: "/functions/live-table-edit.php?id="+x+"&data="+y,
 type: 'GET',
 success: function(s){
 if(s == 'status'){

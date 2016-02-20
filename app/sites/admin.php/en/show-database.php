@@ -16,20 +16,14 @@
 			  </thead>
 			  <tbody>
 				<?php
-					$result = (new db)->connect('SELECT * FROM question');
-					$i=0;
-					
+					$result = (new db)->query('SELECT * FROM question');
 					while($row = $result->fetch_assoc()){
-						if($i%2==0)
-							$class = 'even';
-						else
-							$class = 'odd';
 						echo'
-						<tr class=\''.$class.'\'>
+						<tr>
 							<td>'.$row['id'].'</td>
-							<td><span class= \'xedit\' id=\'' . $row['id'] . '\'>' . $row['question'] . '</span></td>
-							<td>'.$row['creation'].'</td>
-							<td>'.$row['board'].'</td>
+							<td><span class=\'xedit\' id=\'' . $row['id'] . '\'>' . $row['question'] . '</span></td>
+							<td>' . $row['creation'] . '</td>
+							<td>' . $row['board'] . '</td>
 						</tr>';
 					}
 				?>

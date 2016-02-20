@@ -29,20 +29,27 @@ class loginCheck {
 	}
 }
 class db {
-	function connect($sql){
-		$conn = new mysqli('127.0.0.1', 'testdb', 'testpw', 'testdb');
+	function connect($host, $user, $pw, $db){
+		$conn = new mysqli($host, $user, $pw, $db);
 		if (!$conn) {
 			echo 'Keine Verbindung zu DB möglich: ' . mysql_error();
 			exit;
 		}
 		$conn->query('SET NAMES \'utf8\'');
+		return $conn;
+	}
+	function query($sql){
+		$conn= $this->connect('127.0.0.1', 'testdb', 'testpw', 'testdb');
 		$result = $conn->query($sql);
 		if (!$result) {
 			echo 'Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysql_error();
 			exit;
 		}
-		mysqli_close($conn);
+		// $this->disconnect($conn);
 		return $result;
+	}
+	function disconnect($conn){
+		mysqli_close($conn);		
 	}
 }
 ?>
