@@ -31,6 +31,8 @@ $action = $_GET['action'];
 		<link href='css/bootstrap.min.css' type='text/css' rel='stylesheet' />
 		<link href='css/languages.min.css' rel='stylesheet'>
 		<link href='css/navbar-fixed-top.css' rel='stylesheet'>
+		<link href='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css' rel='stylesheet'/>
+		
 <?php
 	} else {
 ?>
@@ -54,6 +56,8 @@ $action = $_GET['action'];
 		?>
 		
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src='js/bootstrap.min.js'></script>
+		<script src='js/live-table-edit.js'></script>
+		<script src='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js'></script>
 	</body>
 </html>

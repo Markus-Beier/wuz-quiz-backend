@@ -21,13 +21,13 @@
 				  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 				  Quiz-Editor <span class="caret"></span></a>
 				  <ul class="dropdown-menu">
-					<li><a href="?action=add-a-quiz">Add a quiz</a></li>
-					<li><a href="?action=add-a-question">Add a question</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-quiz"))); ?>">Add a quiz</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-question"))); ?>">Add a question</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header">Database</li>
-					<li><a href="?action=show-database">Show database</a></li>
-					<li><a href="?action=edit-a-quiz">Edit a quiz</a></li>
-					<li><a href="?action=edit-a-question">Edit a question</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "show-database"))); ?>">Show database</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "edit-a-quiz"))); ?>">Edit a quiz</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "edit-a-question"))); ?>">Edit a question</a></li>
 				  </ul>
 				</li>
 			  </ul>
@@ -40,8 +40,8 @@
 					?>></span> <span class="caret"></span>
 				  </a>
 				  <ul class="dropdown-menu" role="menu">
-					<li><a href="?lang=de"><span class="lang-sm lang-lbl-full" lang="de"></span></a></li>
-					<li><a href="?lang=en"><span class="lang-sm lang-lbl-full" lang="en"></span></a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("lang" => "de"))); ?>"><span class="lang-sm lang-lbl-full" lang="de"></span></a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("lang" => "en"))); ?>"><span class="lang-sm lang-lbl-full" lang="en"></span></a></li>
 				  </ul>
 				</li>
 				<li class="dropdown">
