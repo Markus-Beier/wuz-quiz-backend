@@ -1,10 +1,11 @@
 <?php
 require_once('../functions.inc.php');
 
-if($_GET['id'] and $_GET['data']){
+if($_GET['id'] AND $_GET['data'] AND $_GET['key']){
 	$id = $_GET['id'];
 	$data = $_GET['data'];
-	$result = (new db)->query('UPDATE question SET question=\'' . $data . '\' WHERE id=\'' . $id . '\';');
+	$key = $_GET['key'];
+	$result = (new db)->query('UPDATE question SET ' . $key . '=\'' . $data . '\' WHERE id=\'' . $id . '\';');
 	if($result)
 		echo 'success';
 }
