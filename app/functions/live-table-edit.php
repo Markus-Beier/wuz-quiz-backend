@@ -1,6 +1,9 @@
 <?php
 require_once('../functions.inc.php');
 
+if($_SERVER['HTTP_HOST'] != "localhost")
+	die("Access prohibited!");
+
 if($_GET['id'] AND $_GET['data'] AND $_GET['table'] AND $_GET['key']){
 	$id = $_GET['id'];
 	$data = $_GET['data'];
