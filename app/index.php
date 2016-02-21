@@ -8,17 +8,11 @@ $behavior = new loginCheck;
 
 ($_GET['lang']) ? $lang=$_GET['lang'] : $lang='en';
 $action = $_GET['action'];
-
-#echo 'Your current IP-Adress: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br />' . "\n";
-#if ($_SERVER['REMOTE_ADDR'] == '77.20.104.216'){
-#	echo 'Hier entsteht eine Web-Applikations Testumgebung des <b>Schutzgemeinschaft Wallheckenlandschaft Leer e.V.</b>';
-#}
-
 ?>
 <!DOCTYPE html>
 <html lang='<?php echo $lang; ?>'>
 	<head>
-		<title></title>
+		<title>WUZ Admin-Configuration v1.0</title>
 		<meta charset='utf-8' />
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
@@ -34,7 +28,7 @@ $action = $_GET['action'];
 		<link href='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css' rel='stylesheet'/>
 		
 <?php
-	} else {
+	}else{
 ?>
 		<link href='css/style.css' type='text/css' rel='stylesheet' />
 		<link href='css/login.css' type='text/css' rel='stylesheet' />
@@ -48,11 +42,16 @@ $action = $_GET['action'];
 	</head>
 	<body>
 		<?php
+		  if(in_array($_SERVER['REMOTE_ADDR'], explode ('<br />', file_get_contents('http://localhost/functions/ip-whitelist.php')))){	// allowed IP-addresses to access the Admin-Configuration
 			if($behavior->status() == 0 or $behavior->status() == 2){
 				include('login.php');
 			} else if($behavior->status() == 1){
 				include('sites/admin.php/admin.php');
 			}
+		  }else{
+			echo 'Your current IP-Adress: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br />' . "\n";
+			echo 'Hier entsteht eine Web-Applikations Testumgebung des <b>Schutzgemeinschaft Wallheckenlandschaft Leer e.V.</b>';
+		  }
 		?>
 		
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>

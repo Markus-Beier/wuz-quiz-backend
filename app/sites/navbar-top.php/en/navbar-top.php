@@ -12,22 +12,19 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="/?<?php echo 'lang=' . $lang; ?>">Home</a></li>
-<!--
-				<li><a href="#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
--->
+				<li class="active"><a href="/?<?php echo 'lang=' . $lang; ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
 				<li class="dropdown">
 				  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-				  Quiz-Editor <span class="caret"></span></a>
+				  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Quiz-Editor <span class="caret"></span></a>
 				  <ul class="dropdown-menu">
-					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-quiz"))); ?>">Add a quiz</a></li>
-					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-question"))); ?>">Add a question</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-quiz"))); ?>">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add a quiz</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-question"))); ?>">
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add a question</a></li>
 					<li role="separator" class="divider"></li>
-					<li class="dropdown-header">Database</li>
-					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "show-database"))); ?>">Show database</a></li>
-					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "edit-a-quiz"))); ?>">Edit a quiz</a></li>
-					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "edit-a-question"))); ?>">Edit a question</a></li>
+					<li class="dropdown-header"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Database</li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "show-database"))); ?>">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Show database</a></li>
 				  </ul>
 				</li>
 			  </ul>
