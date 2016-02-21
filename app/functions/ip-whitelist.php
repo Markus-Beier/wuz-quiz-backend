@@ -1,6 +1,6 @@
 <?php
   if($_SERVER['HTTP_HOST'] != "localhost")
-	die("Kein Zugriff");
+	die("Access prohibited!");
 
   $whitelist = array(
 	''
