@@ -49,7 +49,7 @@ $action = $_GET['action'];
 				include('sites/admin.php/admin.php');
 			}
 		  }else{
-			echo 'Your current IP-Adress: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br />' . "\n";
+			echo 'Your current IP-Address: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br />' . "\n";
 			echo 'Hier entsteht eine Web-Applikations Testumgebung des <b>Schutzgemeinschaft Wallheckenlandschaft Leer e.V.</b>';
 		  }
 		?>
