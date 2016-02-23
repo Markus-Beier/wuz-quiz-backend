@@ -12,6 +12,7 @@ class loginCheck {
 			$password = $_POST['password'];
 			if ($username == 'testuser' and $password == 'testpw'){
 				$_SESSION['username'] = $username;
+				$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
 				echo '
 				<script language=\'javascript\' type=\'text/javascript\'>
 					storeLocalData(\'username\',\'' . $username . '\');
