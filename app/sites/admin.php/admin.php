@@ -1,5 +1,4 @@
 <?php
-
 require_once('functions.inc.php');
 
 $behavior = new loginCheck;
