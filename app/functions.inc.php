@@ -20,7 +20,7 @@ class loginCheck {
 				require('config.inc.php');
 				if ($username == $login_username and $password == $login_pw){
 					$_SESSION['username'] = $username;
-					$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+//					$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
 					echo '
 					<script language=\'javascript\' type=\'text/javascript\'>
 						storeLocalData(\'username\',\'' . $username . '\');
@@ -50,6 +50,9 @@ class db {
 		$conn->query('SET NAMES \'utf8\'');
 		return $conn;
 	}
+	function disconnect($conn){
+		mysqli_close($conn);		
+	}
 	function query($sql){
 		require('config.inc.php');
 		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
@@ -60,9 +63,6 @@ class db {
 		}
 		$this->disconnect($conn);
 		return $result;
-	}
-	function disconnect($conn){
-		mysqli_close($conn);		
 	}
 }
 ?>

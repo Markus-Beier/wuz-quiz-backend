@@ -1,7 +1,6 @@
 <?php
   session_start();
   if ($_SESSION['username'] != NULL){
-	echo 'test';
 	require_once('../functions.inc.php');
 	if($_GET['id'] AND $_GET['data'] AND $_GET['table'] AND $_GET['key']){
 	  $id = $_GET['id'];
