@@ -1,6 +1,6 @@
 <?php
-  if($_SERVER['HTTP_HOST'] != "localhost")
-	die("Access prohibited!");
+  if($_SERVER['HTTP_HOST'] != 'localhost')
+	die('Access prohibited!');
 
   $whitelist = array(
 	''		// add as many IPs you need in this array

@@ -36,22 +36,23 @@ $action = $_GET['action'];
 		<script language='javascript' type='text/javascript' src='js/miscellaneous.js'></script>
 		<script language='javascript' type='text/javascript' src='js/opacity.js'></script>
 		<script language='javascript' type='text/javascript' src='js/resize.js'></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 <?php
 	}
 ?>
 	</head>
 	<body>
 		<?php
-		  if(in_array($_SERVER['REMOTE_ADDR'], explode ('<br />', file_get_contents('http://localhost/functions/ip-whitelist.php')))){	// allowed IP-addresses to access the Admin-Configuration
+//		  if(in_array($_SERVER['REMOTE_ADDR'], explode ('<br />', file_get_contents('http://localhost/functions/ip-whitelist.php')))){	// allowed IP-addresses to access the Admin-Configuration
 			if($behavior->status() == 0 or $behavior->status() == 2){
 				include('login.php');
 			} else if($behavior->status() == 1){
 				include('sites/admin.php/admin.php');
 			}
-		  }else{
+/* 		  }else{
 			echo 'Your current IP-Address: <b>' . $_SERVER['REMOTE_ADDR'] . '</b><br />' . "\n";
 			echo 'Hier entsteht eine Web-Applikations Testumgebung des <b>Schutzgemeinschaft Wallheckenlandschaft Leer e.V.</b>';
-		  }
+		  } */
 		?>
 		
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
