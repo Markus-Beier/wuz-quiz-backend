@@ -16,6 +16,20 @@
 			  </thead>
 			  <tbody>
 				<?php
+					if (!(new db)->query('DESCRIBE `question`')){
+					  // Create table structure wuz.question
+					  (new db)->query('
+						CREATE TABLE IF NOT EXISTS `question` (
+						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+						  `question` tinytext NOT NULL,
+						  `type` tinyint(4) NOT NULL,
+						  `creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+						  `board` tinyint(4) NOT NULL,
+						  `active` tinyint(1) NOT NULL,
+						  PRIMARY KEY (`id`)
+						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+					  ');
+					}
 					$result = (new db)->query('SELECT * FROM question');
 					while($row = $result->fetch_assoc()){
 						echo'
@@ -42,6 +56,18 @@
 			  </thead>
 			  <tbody>
 				<?php
+					if (!(new db)->query('DESCRIBE `answer_choice`')){
+					  // Create table structure wuz.answer_choice
+					  (new db)->query('
+						CREATE TABLE IF NOT EXISTS `answer_choice` (
+						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+						  `question_id` smallint(6) NOT NULL,
+						  `answer` tinytext CHARACTER SET utf8 NOT NULL,
+						  `correct` tinyint(1) NOT NULL,
+						  PRIMARY KEY (`id`)
+						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+					  ');
+					}
 					$result = (new db)->query('SELECT * FROM answer_choice');
 					while($row = $result->fetch_assoc()){
 						echo'

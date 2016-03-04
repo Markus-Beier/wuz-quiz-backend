@@ -1,3 +1,19 @@
+<?php
+  include('functions/alerts.php');
+  $alerts = array(
+	'table_structure_created_question' 		=> array(	'message' => 'Table structure for `question` successfully created!',
+														'context' => 'success',
+														'title'   => 'Well done!',
+														'dismissible' => true
+														),
+	'table_structure_created_answer_choice' => array(	'message' => 'Table structure for `answer_choice` successfully created!',
+														'context' => 'success',
+														'title'   => 'Well done!',
+														'dismissible' => true
+														)
+  );
+?>
+
 		<div class="container">
 		  <div class="jumbotron">
 			<h2>Quiz-Overview:</h2>
@@ -18,7 +34,22 @@
 			  </thead>
 			  <tbody>
 				<?php
-					$result = (new db)->query('SELECT * FROM question');
+					if (!(new db)->query('DESCRIBE `question`')){
+					  echo(bootstrap_alert($alerts, 'table_structure_created_question'));
+					  // Create table structure wuz.question
+					  (new db)->query('
+						CREATE TABLE IF NOT EXISTS `question` (
+						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+						  `question` tinytext NOT NULL,
+						  `type` tinyint(4) NOT NULL,
+						  `creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+						  `board` tinyint(4) NOT NULL,
+						  `active` tinyint(1) NOT NULL,
+						  PRIMARY KEY (`id`)
+						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+					  ');
+					}
+					$result = (new db)->query('SELECT * FROM `question`');
 					while($row = $result->fetch_assoc()){
 						echo'
 						<tr>
@@ -47,7 +78,20 @@
 			  </thead>
 			  <tbody>
 				<?php
-					$result = (new db)->query('SELECT * FROM answer_choice');
+					if (!(new db)->query('DESCRIBE `answer_choice`')){
+					  echo(bootstrap_alert($alerts, 'table_structure_created_answer_choice'));
+					  // Create table structure wuz.answer_choice
+					  (new db)->query('
+						CREATE TABLE IF NOT EXISTS `answer_choice` (
+						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+						  `question_id` smallint(6) NOT NULL,
+						  `answer` tinytext CHARACTER SET utf8 NOT NULL,
+						  `correct` tinyint(1) NOT NULL,
+						  PRIMARY KEY (`id`)
+						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+					  ');
+					}
+					$result = (new db)->query('SELECT * FROM `answer_choice`');
 					while($row = $result->fetch_assoc()){
 						echo'
 						<tr>

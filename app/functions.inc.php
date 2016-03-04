@@ -2,9 +2,9 @@
 class loginCheck {
 	function status(){
 		# returns:
-		# 0 logged out
-		# 1	logged in
-		# 2	login error
+		# 0	=>	logged out
+		# 1	=>	logged in
+		# 2	=>	login error
 		if (isset($_SESSION['username'])){
 			return 1;
 		} else if(isset($_POST['sent'])){
@@ -58,8 +58,8 @@ class db {
 		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
 		$result = $conn->query($sql);
 		if (!$result) {
-			echo 'Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysql_error();
-			exit;
+			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysql_error();
+			// exit;
 		}
 		$this->disconnect($conn);
 		return $result;
