@@ -21,9 +21,10 @@
 			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
 			  <thead>
 			    <tr>
-				  <th colspan="6" rowspan="1"  tabindex="0">table "question"</th>
+				  <th colspan="7" rowspan="1"  tabindex="0">table "question"</th>
 				</tr>
 				<tr>
+				  <th colspan="1" rowspan="1"  tabindex="0"><span class='glyphicon glyphicon-cog'></span></th>
 				  <th colspan="1" rowspan="1"  tabindex="0">id<br />[SMALLINT]</th>
 				  <th colspan="1" rowspan="1"  tabindex="0">question<br />[TINYTEXT]</th>
 				  <th colspan="1" rowspan="1"  tabindex="0">type<br />[TINYINT]</th>
@@ -53,6 +54,7 @@
 					while($row = $result->fetch_assoc()){
 						echo'
 						<tr>
+							<td><a class="btn btn-danger"><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 							<td>'.$row['id'].'</td>
 							<td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'question\' key=\'question\'>' . $row['question'] . '</span></td>
 							<td><span class=\'xedit-dropdown-type\' id=\'' . $row['id'] . '\' table=\'question\' key=\'type\'>' . $row['type'] . '</span></td>

@@ -5,9 +5,10 @@
 			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
 			  <thead>
 			    <tr>
-				  <th colspan="4" rowspan="1"  tabindex="0">Tabelle: Fragen</th>
+				  <th colspan="5" rowspan="1"  tabindex="0">Tabelle: Fragen</th>
 				</tr>
 				<tr>
+				  <th colspan="1" rowspan="1"  tabindex="0"><span class='glyphicon glyphicon-cog'></span></th>
 				  <th colspan="1" rowspan="1"  tabindex="0">Frage-Nr.</th>
 				  <th colspan="1" rowspan="1"  tabindex="0">Frage</th>
 				  <th colspan="1" rowspan="1"  tabindex="0">Tafel-/Quiz-Nummer</th>
@@ -34,6 +35,7 @@
 					while($row = $result->fetch_assoc()){
 						echo'
 						<tr>
+							<td><a class="btn btn-danger"><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 							<td>'.$row['id'].'</td>
 							<td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'question\' key=\'question\'>' . $row['question'] . '</span></td>
 							<td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'question\' key=\'board\'>' . $row['board'] . '</span></td>

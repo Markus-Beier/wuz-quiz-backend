@@ -59,7 +59,7 @@
 					<li><a href="">Something else here</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header">Admin</li>
-					<li><a href="logout.php">Abmelden/Logout</a></li>
+					<li><a href="logout.php"><span class='glyphicon glyphicon-off'></span> Abmelden/Logout</a></li>
 				  </ul>
 				</li>
 			  </ul>
