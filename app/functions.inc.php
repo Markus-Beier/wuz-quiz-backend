@@ -58,7 +58,20 @@ class db {
 		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
 		$result = $conn->query($sql);
 		if (!$result) {
-			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysql_error();
+			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysqli_error($conn);
+			// exit;
+		}
+		$this->disconnect($conn);
+		return $result;
+	}
+	function query_id($sql){
+		require('config.inc.php');
+		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
+		$result = array();
+		$result['db_erg'] = $conn->query($sql);
+		$result['id'] = mysqli_insert_id($conn);
+		if (!$result) {
+			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysqli_error($conn);
 			// exit;
 		}
 		$this->disconnect($conn);

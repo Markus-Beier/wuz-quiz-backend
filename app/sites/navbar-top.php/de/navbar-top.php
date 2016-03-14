@@ -21,6 +21,8 @@
 					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Quiz hinzufügen</a></li>
 					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "add-a-question"))); ?>">
 					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Frage hinzufügen</a></li>
+					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "manage-questions"))); ?>">
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Fragen verwalten</a></li>
 					<li role="separator" class="divider"></li>
 					<li class="dropdown-header"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Datenbank</li>
 					<li><a href="?<?php echo http_build_query(array_merge($_GET, array("action" => "show-database"))); ?>">
