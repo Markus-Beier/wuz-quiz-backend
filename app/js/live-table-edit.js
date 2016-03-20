@@ -17,6 +17,14 @@ jQuery(document).ready(function() {
 	  {value: 1, text: "correct (1)"}
 	  ]
   });
+  $('.xedit-dropdown-subscribed').editable({
+	type: 'select',
+	inputclass: 'xedit-dropdown',
+	source: [
+	  {value: 'NULL', text: "not subscribed (0)"},
+	  {value: 1, text: "subscribed (1)"}
+	  ]
+  });
   $('.xedit-dropdown-type').editable({
 	type: 'select',
 	inputclass: 'xedit-dropdown',
