@@ -121,6 +121,11 @@
 				  <th colspan='2' rowspan='1'  tabindex='0'>table "board"</th>
 				</tr>
 				<tr>
+				  <th colspan='1' rowspan='1'  tabindex='0' width='1em'>
+					<span style='width: 100%; height: 100%; text-align: center; line-height: 3em; vertical-align: middle;'
+					class='glyphicon glyphicon-cog'>
+					</span>
+				  </th>
 				  <th colspan='1' rowspan='1'  tabindex='0'>id<br />[SMALLINT]</th>
 				  <th colspan='1' rowspan='1'  tabindex='0'>title<br />[TINYTEXT]</th>
 				</tr>
@@ -142,6 +147,7 @@
 					while($row = $result->fetch_assoc()){
 						echo'
 				<tr>
+				  <td><a class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 				  <td>'.$row['id'].'</td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'board\' key=\'title\'>' . $row['title'] . '</span></td>
 				</tr>';

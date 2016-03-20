@@ -59,7 +59,6 @@ class db {
 		$result = $conn->query($sql);
 		if (!$result) {
 			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysqli_error($conn);
-			// exit;
 		}
 		$this->disconnect($conn);
 		return $result;
@@ -72,7 +71,6 @@ class db {
 		$result['id'] = mysqli_insert_id($conn);
 		if (!$result) {
 			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen von DB: ' . mysqli_error($conn);
-			// exit;
 		}
 		$this->disconnect($conn);
 		return $result;

@@ -1,7 +1,7 @@
 		<div class="container">
 			<div class="jumbatron">
 				<h2>Verwalten Sie ihre Quiz-Fragen:</h2>
-				<p>In diesem Interface k&ouml;nnen Sie ihre Quiz-Fragen verwalten.</p>
+				<p>In diesem Interface werden Quiz-Fragen verwaltet.</p>
 
 				<form class="form-horizontal" method="GET">
 					<?php
@@ -37,7 +37,7 @@
 							}
 						?>
 					</select>
-					<input class="btn btn-success" type="submit" value="Quiz zur Verwaltung &ouml;ffnen">
+					<input class="btn btn-success" type="submit" value="Quiz zur Verwaltung öffnen">
 				</form>
 			</div>
 			<div class="well">
@@ -83,12 +83,12 @@
 								</span>
 								<span class="input-group-addon form-control" id="einfaches-addon1" style="text-align: left;">'. $fragetext .'</span>
 								<span class="input-group-btn">
-									<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>L&ouml;schen</button>
+									<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>Löschen</button>
 								</span>
 							</div>';
 					}
 				} else {
-					echo "<p>Bitte w&auml;hlen Sie ein Quiz zum verwalten aus.</p>";
+					echo "<p>Bitte wählen Sie ein Quiz zum verwalten aus.</p>";
 				}
 				?>
 
@@ -99,7 +99,7 @@
 					</span>
 					<span class="input-group-addon form-control" id="einfaches-addon1" style="text-align: left;">Frage? - Aktiv - Art - Erstellungsdatum</span>
 					<span class="input-group-btn">
-						<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>L&ouml;schen</button>
+						<button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i>Löschen</button>
 					</span>
 				</div>
 				-->
