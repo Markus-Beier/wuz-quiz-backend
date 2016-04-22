@@ -2,7 +2,7 @@
   include('functions/alerts.php');
   
   $create = new create;
-  
+
   $alerts = array(
 	'table_structure_created_answer_choice' => array(	'message' => 'Table structure for `answer_choice` successfully created!',
 														'context' => 'success',
@@ -30,7 +30,7 @@
 														'dismissible' => true
 														)
   );
-  
+
   class create{
 	function answer_choice(){
 	  (new db)->query('
@@ -97,7 +97,6 @@
   function created($db_table){
 	echo (bootstrap_alert($alerts, 'table_structure_created_' . $db_table));
   }
-  
 ?>
 
 		<div class='container'>
@@ -134,7 +133,7 @@
 					while($row = $result->fetch_assoc()){
 						echo '
 				<tr>
-				  <td><a class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
+				  <td><span name=\'remove-question\' id=\'' . $row['id'] . '\' class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></span></td>
 				  <td>' . $row['id'] . '</td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'question\' key=\'question\'>' . $row['question'] . '</span></td>
 				  <td><span class=\'xedit-dropdown-type\' id=\'' . $row['id'] . '\' table=\'question\' key=\'type\'>' . $row['type'] . '</span></td>
@@ -204,7 +203,7 @@
 					while($row = $result->fetch_assoc()){
 						echo '
 				<tr>
-				  <td><a class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
+				  <td><a class=\'btn btn-default\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 				  <td>' . $row['id'] . '</td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'board\' key=\'title\'>' . $row['title'] . '</span></td>
 				</tr>';
@@ -240,7 +239,7 @@
 					while($row = $result->fetch_assoc()){
 						echo '
 				<tr>
-				  <td><a class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
+				  <td><a class=\'btn btn-default\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 				  <td>' . $row['id'] . '</td>
 				  <td><span class=\'xedit-dropdown-subscribed\' id=\'' . $row['id'] . '\' table=\'user\' key=\'newsletter_subscribed\'>' . $row['newsletter_subscribed'] . '</span></td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'user\' key=\'name\'>' . $row['name'] . '</span></td>

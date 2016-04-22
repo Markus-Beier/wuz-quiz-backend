@@ -17,6 +17,49 @@
 														'dismissible' => true
 														)
   );
+
+  class create{
+	function answer_choice(){
+	  (new db)->query('
+		CREATE TABLE IF NOT EXISTS `answer_choice` (
+		  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+		  `question_id` smallint(6) NOT NULL,
+		  `answer` tinytext CHARACTER SET utf8 NOT NULL,
+		  `correct` tinyint(1) NOT NULL,
+		  PRIMARY KEY (`id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	  ');
+	  // created(__FUNCTION__);
+	}
+	function board(){
+	  (new db)->query('
+		CREATE TABLE IF NOT EXISTS `board` (
+		  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
+		  `title` tinytext CHARACTER SET utf8 NOT NULL,
+		  PRIMARY KEY (`id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	  ');
+	  // created(__FUNCTION__);
+	}
+	function question(){
+	  (new db)->query('
+		CREATE TABLE IF NOT EXISTS `question` (
+		  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+		  `question` tinytext NOT NULL,
+		  `type` tinyint(4) NOT NULL,
+		  `creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+		  `board` tinyint(4) NOT NULL,
+		  `active` tinyint(1) NOT NULL,
+		  PRIMARY KEY (`id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	  ');
+	  // created(__FUNCTION__);
+	}
+  }
+  
+  function created($db_table){
+	echo (bootstrap_alert($alerts, 'table_structure_created_' . $db_table));
+  }
 ?>
 
 		<div class='container'>
@@ -45,23 +88,14 @@
 					if (!(new db)->query('DESCRIBE `question`')){
 					  echo(bootstrap_alert($alerts, 'table_structure_created_question'));
 					  // Create table structure wuz.question
-					  (new db)->query('
-						CREATE TABLE IF NOT EXISTS `question` (
-						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
-						  `question` tinytext NOT NULL,
-						  `type` tinyint(4) NOT NULL,
-						  `creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-						  `board` tinyint(4) NOT NULL,
-						  `active` tinyint(1) NOT NULL,
-						  PRIMARY KEY (`id`)
-						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-					  ');
+					  $create->question();
+					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'question'));
 					}
 					$result = (new db)->query('SELECT * FROM `question`');
 					while($row = $result->fetch_assoc()){
 						echo'
 				<tr>
-				  <td><a class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
+				  <td><span name=\'remove-question\' id=\'' . $row['id'] . '\' class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></span></td>
 				  <td>'.$row['id'].'</td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'question\' key=\'question\'>' . $row['question'] . '</span></td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'question\' key=\'board\'>' . $row['board'] . '</span></td>
@@ -87,15 +121,8 @@
 					if (!(new db)->query('DESCRIBE `answer_choice`')){
 					  echo(bootstrap_alert($alerts, 'table_structure_created_answer_choice'));
 					  // Create table structure wuz.answer_choice
-					  (new db)->query('
-						CREATE TABLE IF NOT EXISTS `answer_choice` (
-						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
-						  `question_id` smallint(6) NOT NULL,
-						  `answer` tinytext CHARACTER SET utf8 NOT NULL,
-						  `correct` tinyint(1) NOT NULL,
-						  PRIMARY KEY (`id`)
-						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-					  ');
+					  $create->answer_choice();
+					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'answer_choice'));
 					}
 					$result = (new db)->query('SELECT * FROM `answer_choice`');
 					while($row = $result->fetch_assoc()){
@@ -129,19 +156,14 @@
 					if (!(new db)->query('DESCRIBE `board`')){
 					  echo(bootstrap_alert($alerts, 'table_structure_created_board'));
 					  // Create table structure wuz.board
-					  (new db)->query('
-						CREATE TABLE IF NOT EXISTS `board` (
-						  `id` smallint(6) NOT NULL AUTO_INCREMENT,
-						  `title` tinytext CHARACTER SET utf8 NOT NULL,
-						  PRIMARY KEY (`id`)
-						) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-					  ');
+					  $create->board();
+					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'board'));
 					}
 					$result = (new db)->query('SELECT * FROM `board`');
 					while($row = $result->fetch_assoc()){
 						echo'
 				<tr>
-				  <td><a class=\'btn btn-danger\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
+				  <td><a class=\'btn btn-default\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 				  <td>'.$row['id'].'</td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'board\' key=\'title\'>' . $row['title'] . '</span></td>
 				</tr>';

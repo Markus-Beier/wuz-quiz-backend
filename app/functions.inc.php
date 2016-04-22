@@ -1,4 +1,45 @@
 <?php
+class db {
+	function connect($host, $user, $pw, $db){
+		$conn = new mysqli($host, $user, $pw, $db);
+		if (!$conn) {
+			echo 'Keine Verbindung zu DB möglich: ' . mysql_error();
+			exit;
+		}
+		$conn->query('SET NAMES \'utf8\'');
+		return $conn;
+	}
+	function disconnect($conn){
+		mysqli_close($conn);		
+	}
+	function query($sql){
+		require('config.inc.php');
+		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
+		$result = $conn->query($sql);
+		if (!$result) {
+			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
+		}
+		$this->disconnect($conn);
+		return $result;
+	}
+	function query_id($sql){
+		require('config.inc.php');
+		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
+		$result = array();
+		$result['db_erg'] = $conn->query($sql);
+		$result['id'] = mysqli_insert_id($conn);
+		if (!$result) {
+			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
+		}
+		$this->disconnect($conn);
+		return $result;
+	}
+}
+class dbedit {
+	function removequestion($id){
+		
+	}
+}
 class loginCheck {
 	function status(){
 		# returns:
@@ -38,42 +79,6 @@ class loginCheck {
 		} else{
 			return 0;
 		}
-	}
-}
-class db {
-	function connect($host, $user, $pw, $db){
-		$conn = new mysqli($host, $user, $pw, $db);
-		if (!$conn) {
-			echo 'Keine Verbindung zu DB möglich: ' . mysql_error();
-			exit;
-		}
-		$conn->query('SET NAMES \'utf8\'');
-		return $conn;
-	}
-	function disconnect($conn){
-		mysqli_close($conn);		
-	}
-	function query($sql){
-		require('config.inc.php');
-		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
-		$result = $conn->query($sql);
-		if (!$result) {
-			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
-		}
-		$this->disconnect($conn);
-		return $result;
-	}
-	function query_id($sql){
-		require('config.inc.php');
-		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
-		$result = array();
-		$result['db_erg'] = $conn->query($sql);
-		$result['id'] = mysqli_insert_id($conn);
-		if (!$result) {
-			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
-		}
-		$this->disconnect($conn);
-		return $result;
 	}
 }
 ?>

@@ -58,6 +58,7 @@ $action = $_GET['action'];
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
 		<script src='js/bootstrap.min.js'></script>
 		<script src='js/live-table-edit.js'></script>
+		<script language='javascript' type='text/javascript' src='js/remove-question.js'></script>
 		<script src='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js'></script>
 	</body>
 </html>
