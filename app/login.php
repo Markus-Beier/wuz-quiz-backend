@@ -1,5 +1,4 @@
 <?php
-require('config.inc.php');
 require_once('functions.inc.php');
 
 $behavior = new loginCheck;
@@ -22,7 +21,7 @@ $behavior = new loginCheck;
 						<input id='username' onclick='stopBubble(event)' type='text' name='username' placeholder='Username' /><p />
 						<input onclick='stopBubble(event)' type='password' name='password' placeholder='Passwort' /><p />
 					</div>
-					<div class='g-recaptcha' data-sitekey='<?php echo $g_recaptcha_data_sitekey; ?>'></div>
+					<div class='g-recaptcha' data-sitekey='<?php echo G_RECAPTCHA_DATA_SITEKEY; ?>'></div>
 					<div class='right' style='width: 100%;'>
 						<span class='inline-block'>
 							<input class='pointer' onclick='stopBubble(event)' type='submit' value='Login' />

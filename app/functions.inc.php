@@ -53,8 +53,7 @@ class loginCheck {
 			$password	= $_POST['password'];
 			$captcha	= $_POST['g-recaptcha-response'];
 			
-			require_once('config.inc.php');
-			$response=file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $g_recaptcha_secret . '&response=' . $captcha);
+			$response=file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . G_RECAPTCHA_SECRET . '&response=' . $captcha);
 			$responseKeys = json_decode($response,true);
 			
 			if(intval($responseKeys['success']) === 1) {
