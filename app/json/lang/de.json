@@ -1,0 +1,22 @@
+{
+   "index": {
+      "Add_a_quiz": "Quiz hinzufügen",
+      "Add_a_question": "Frage hinzufügen",
+      "Manage_questions": "Fragen verwalten",
+      "Database": "Datenbank",
+      "Show_database": "Datenbank anzeigen",
+      "Signed_in_as": "Eingeloggt als",
+      "Logout": "Abmelden/Logout"
+   },
+ 
+   "navbar_top": {
+      "Add_a_quiz": "Quiz hinzufügen",
+      "Add_a_question": "Frage hinzufügen",
+      "Manage_questions": "Fragen verwalten",
+      "Database": "Datenbank",
+      "Show_database": "Datenbank anzeigen",
+      "Signed_in_as": "Eingeloggt als",
+      "Logout": "Abmelden/Logout"
+   }
+ 
+}

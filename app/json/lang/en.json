@@ -1,0 +1,22 @@
+{
+   "index": {
+      "Add_a_quiz": "Add a quiz",
+      "Add_a_question": "Add a question",
+      "Manage_questions": "Manage questions",
+      "Database": "Database",
+      "Show_database": "Show database",
+      "Signed_in_as": "Signed in as",
+      "Logout": "Logout"
+   },
+ 
+   "navbar_top": {
+      "Add_a_quiz": "Add a quiz",
+      "Add_a_question": "Add a question",
+      "Manage_questions": "Manage questions",
+      "Database": "Database",
+      "Show_database": "Show database",
+      "Signed_in_as": "Signed in as",
+      "Logout": "Logout"
+   }
+ 
+}

@@ -80,4 +80,15 @@ class loginCheck {
 		}
 	}
 }
+class language {
+	public $data;
+	function __construct($language) {
+		// $data = file_get_contents(json/lang/$language . '.json');
+		$data = file_get_contents('http://markus.zapto.org/json/lang/' . $language . '.json'); // !!!!!!!!!!!!!!!!!   EDIT   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		$this->data = json_decode($data);
+	}
+	function translate() {
+		return $this->data;
+	}
+}
 ?>
