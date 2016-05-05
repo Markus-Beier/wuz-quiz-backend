@@ -4,6 +4,7 @@
 	  "p": "This interface is for creating and editing quizzes."
 	},
 
+
 	"admin__action__add_a_question": {
       "h2": "Add a question:",
 	  "p": "In this interface you can add questions.",
@@ -14,6 +15,54 @@
 	  "answers": "Answers:",
 	  "submit": "submit"
 	},
+
+
+	"admin__action__add_a_quiz": {
+      "h2": "Add a quiz:",
+	  "p": "In this interface you can add quizzes."
+	},
+
+
+	"admin__action__show_database": {
+      "h2": "Quiz-Overview:",
+	  "p": "This interface shows editable quizzes.",
+
+	  "table_question": "table \"question\"",
+	  "id_question_SMALLINT": "id<br />[SMALLINT]",
+	  "question_TINYTEXT": "question<br />[TINYTEXT]",
+	  "type_TINYINT": "type<br />[TINYINT]",
+	  "creation_TIMESTAMP": "creation<br />[TIMESTAMP]",
+	  "board_TINYINT": "board<br />[TINYINT]",
+	  "active_BOOLEAN": "active<br />[BOOLEAN]",
+
+	  "table_answer_choice": "table \"answer_choice\"",
+	  "id_answer_SMALLINT": "id<br />[SMALLINT]",
+	  "question_id_SMALLINT": "question_id<br />[SMALLINT]",
+	  "answer_TINYTEXT": "answer<br />[TINYTEXT]",
+	  "correct_BOOLEAN": "correct<br />[BOOLEAN]",
+
+	  "table_board": "table \"board\"",
+	  "id_TINYINT": "id<br />[TINYINT]",
+	  "title_TINYTEXT": "title<br />[TINYTEXT]",
+
+	  "alerts_success": "success",
+	  "alerts_success_title": "Well done!",
+	  "alert__table_structure_created_answer_choice": "Table structure for `answer_choice` successfully created!",
+	  "alert__table_structure_created_board": "Table structure for `board` successfully created!",
+	  "alert__table_structure_created_question": "Table structure for `question` successfully created!",
+	  "alert__table_structure_created_scores": "Table structure for `scores` successfully created!",
+	  "alert__table_structure_created_user": "Table structure for `user` successfully created!",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": ""
+	},
+
 
 	"navbar_top": {
 	  "Add_a_quiz": "Add a quiz",

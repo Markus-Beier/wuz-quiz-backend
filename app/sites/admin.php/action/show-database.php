@@ -1,32 +1,32 @@
 <?php
   include('functions/alerts.php');
-  
+
   $create = new create;
 
   $alerts = array(
-	'table_structure_created_answer_choice' => array(	'message' => 'Table structure for `answer_choice` successfully created!',
-														'context' => 'success',
-														'title'   => 'Well done!',
+	'table_structure_created_answer_choice' => array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_answer_choice,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_board'			=> array(	'message' => 'Table structure for `board` successfully created!',
-														'context' => 'success',
-														'title'   => 'Well done!',
+	'table_structure_created_board'			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_board,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_question' 		=> array(	'message' => 'Table structure for `question` successfully created!',
-														'context' => 'success',
-														'title'   => 'Well done!',
+	'table_structure_created_question' 		=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_question,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_scores' 		=> array(	'message' => 'Table structure for `scores` successfully created!',
-														'context' => 'success',
-														'title'   => 'Well done!',
+	'table_structure_created_scores' 		=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_scores,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_user' 			=> array(	'message' => 'Table structure for `user` successfully created!',
-														'context' => 'success',
-														'title'   => 'Well done!',
+	'table_structure_created_user' 			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_user,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														)
   );
@@ -101,12 +101,12 @@
 
 		<div class='container'>
 		  <div class='jumbotron'>
-			<h2>Quiz-Overview:</h2>
-			<p>This interface shows editable quizzes.</p>
+			<h2><?php echo $lt->admin__action__show_database->h2; ?></h2>
+			<p><?php echo $lt->admin__action__show_database->p; ?></p>
 			<table class= 'table table-striped table-bordered table-hover dataTable' id="datatable">
 			  <thead>
 				<tr>
-				  <th colspan='7' rowspan='1'  tabindex='0'>table "question"</th>
+				  <th colspan='7' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->table_question; ?></th>
 				</tr>
 				<tr>
 				  <th colspan='1' rowspan='1'  tabindex='0'>
@@ -114,12 +114,12 @@
 					class='glyphicon glyphicon-cog'>
 					</span>
 				  </th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>id<br />[SMALLINT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>question<br />[TINYTEXT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>type<br />[TINYINT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>creation<br />[TIMESTAMP]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>board<br />[TINYINT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>active<br />[BOOLEAN]</th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->id_question_SMALLINT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->question_TINYTEXT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->type_TINYINT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->creation_TIMESTAMP; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->board_TINYINT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->active_BOOLEAN; ?></th>
 				  </tr>
 			  </thead>
 			  <tbody>
@@ -148,13 +148,13 @@
 			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
 			  <thead>
 				<tr>
-				  <th colspan='4' rowspan='1'  tabindex='0'>table "answer_choice"</th>
+				  <th colspan='4' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->table_answer_choice; ?></th>
 				</tr>
 				<tr>
-				  <th colspan='1' rowspan='1'  tabindex='0'>id<br />[SMALLINT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>question_id<br />[SMALLINT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>answer<br />[TINYTEXT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>correct<br />[BOOLEAN]</th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->id_answer_SMALLINT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->question_id_SMALLINT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->answer_TINYTEXT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->correct_BOOLEAN; ?></th>
 				</tr>
 			  </thead>
 			  <tbody>
@@ -180,7 +180,7 @@
 			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
 			  <thead>
 				<tr>
-				  <th colspan='3' rowspan='1'  tabindex='0'>table "board"</th>
+				  <th colspan='3' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->table_board; ?></th>
 				</tr>
 				<tr>
 				  <th colspan='1' rowspan='1'  tabindex='0' width='1em'>
@@ -188,8 +188,8 @@
 					class='glyphicon glyphicon-cog'>
 					</span>
 				  </th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>id<br />[TINYINT]</th>
-				  <th colspan='1' rowspan='1'  tabindex='0'>title<br />[TINYTEXT]</th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->id_TINYINT; ?></th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->title_TINYTEXT; ?></th>
 				</tr>
 			  </thead>
 			  <tbody>
@@ -211,7 +211,7 @@
 				?>	
 			  </tbody>
 			</table>
-			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
+<!--			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
 			  <thead>
 				<tr>
 				  <th colspan='5' rowspan='1'  tabindex='0'>table "user"</th>
@@ -229,13 +229,13 @@
 				</tr>
 			  </thead>
 			  <tbody>
-				<?php
+-->				<?php
 					if (!(new db)->query('DESCRIBE `user`')){
 					  // Create table structure wuz.user
 					  $create->user();
 					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'user'));
 					}
-					$result = (new db)->query('SELECT * FROM `user`');
+/*					$result = (new db)->query('SELECT * FROM `user`');
 					while($row = $result->fetch_assoc()){
 						echo '
 				<tr>
@@ -246,10 +246,10 @@
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'user\' key=\'email\'>' . $row['email'] . '</span></td>
 				</tr>';
 					}
-				?>	
-			  </tbody>
+*/				?>	
+<!--		  </tbody>
 			</table>
-			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
+--><!--		<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
 			  <thead>
 				<tr>
 				  <th colspan='4' rowspan='1'  tabindex='0'>table "scores"</th>
@@ -262,13 +262,13 @@
 				</tr>
 			  </thead>
 			  <tbody>
-				<?php
+-->				<?php
 					if (!(new db)->query('DESCRIBE `scores`')){
 					  // Create table structure wuz.scores
 					  $create->scores();
 					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'scores'));
 					}
-					$result = (new db)->query('SELECT * FROM `scores`');
+/*					$result = (new db)->query('SELECT * FROM `scores`');
 					while($row = $result->fetch_assoc()){
 						echo '
 				<tr>
@@ -278,8 +278,8 @@
 				  <td>' . $row['percentage'] . '</td>
 				</tr>';
 					}
-				?>	
-			  </tbody>
+*/				?>	
+<!--		  </tbody>
 			</table>
-		  </div>
+-->		  </div>
 		</div>

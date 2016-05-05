@@ -4,6 +4,7 @@
 	  "p": "In diesem Interface werden Quizze erstellt & editiert."
 	},
 
+
 	"admin__action__add_a_question": {
       "h2": "Füge eine Quiz-Frage hinzu:",
 	  "p": "In diesem Interface werden Quiz-Fragen erstellt.",
@@ -14,6 +15,54 @@
 	  "answers": "Antworten:",
 	  "submit": "speichern"
 	},
+
+
+	"admin__action__add_a_quiz": {
+      "h2": "Füge ein Quiz hinzu:",
+	  "p": "In diesem Interface werden Quizze erstellt."
+	},
+
+
+	"admin__action__show_database": {
+      "h2": "Übersicht der Quizze:",
+	  "p": "In diesem Interface werden editierbare Quizze angezeigt.",
+
+	  "table_question": "Tabelle: Fragen",
+	  "id_question_SMALLINT": "Frage-Nr.",
+	  "question_TINYTEXT": "Frage",
+	  "type_TINYINT": "Fragentyp",
+	  "creation_TIMESTAMP": "Erstellt",
+	  "board_TINYINT": "Tafel-/Quiz-Nummer",
+	  "active_BOOLEAN": "Aktive Frage",
+
+	  "table_answer_choice": "Tabelle: Antworten",
+	  "id_answer_SMALLINT": "Antwort-Nr.",
+	  "question_id_SMALLINT": "Frage-Nr.",
+	  "answer_TINYTEXT": "Antwort",
+	  "correct_BOOLEAN": "Korrekte Antwort",
+
+	  "table_board": "Tabelle Tafel-/Quiz-Nummer",
+	  "id_TINYINT": "Tafel-/Quiz-Nummer",
+	  "title_TINYTEXT": "Titel der Tafel / des Quiz",
+
+	  "alerts_success": "success",
+	  "alerts_success_title": "Super!",
+	  "alert__table_structure_created_answer_choice": "Tabellenstruktur für `answer_choice` erfolgreich erstellt!",
+	  "alert__table_structure_created_board": "Tabellenstruktur für `board` erfolgreich erstellt!",
+	  "alert__table_structure_created_question": "Tabellenstruktur für `question` erfolgreich erstellt!",
+	  "alert__table_structure_created_scores": "Tabellenstruktur für `scores` erfolgreich erstellt!",
+	  "alert__table_structure_created_user": "Tabellenstruktur für `user` erfolgreich erstellt!",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": "",
+	  "": ""
+	},
+
 
 	"navbar_top": {
 	  "Add_a_quiz": "Quiz hinzufügen",
