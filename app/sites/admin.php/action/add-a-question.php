@@ -1,7 +1,7 @@
 		<div class="container">
 		  <div class="jumbotron">
-			<h2>Füge eine Quiz-Frage hinzu:</h2>
-			<p>In diesem Interface werden Quiz-Fragen erstellt.</p>
+			<h2><?php echo $lt->admin__action__add_a_question->h2; ?></h2>
+			<p><?php echo $lt->admin__action__add_a_question->p; ?></p>
 			<?php
 				echo '<pre>POST - ';
 				print_r($_POST);
@@ -53,11 +53,11 @@
 				<fieldset>
 
 				<!-- Form Name -->
-				<legend>Quiz-Frage erstellen</legend>
+				<legend><?php echo $lt->admin__action__add_a_question->create_quiz_question; ?></legend>
 
 				<!-- Select Basic -->
 				<div class='form-group'>
-				  <label class='col-md-4 control-label' for='selectbasic_board'>Tafel/Quiz auswählen:</label>
+				  <label class='col-md-4 control-label' for='selectbasic_board'><?php echo $lt->admin__action__add_a_question->select_board; ?></label>
 				  <div class='col-md-5'>
 					<select id='selectbasic_board' name='new_question[selectbasic_board]' class='form-control'>
 						<?php
@@ -72,7 +72,7 @@
 
 				<!-- Text input-->
 				<div class='form-group'>
-				  <label class='col-md-4 control-label' for='textinput_question'>Frage:</label>  
+				  <label class='col-md-4 control-label' for='textinput_question'><?php echo $lt->admin__action__add_a_question->question; ?></label>  
 				  <div class='col-md-8'>
 				  <input name='new_question[textinput_question]' type='text'
 				  placeholder='Vor wie vielen Jahren wurde in Ostfriesland schon Ackerbau betrieben?' class='form-control input-md' required='' />
@@ -81,7 +81,7 @@
 
 				<!-- File Button --> 
 				<div class='form-group'>
-				  <label class='col-md-4 control-label' for='filebutton_img'>Foto hochladen:</label>
+				  <label class='col-md-4 control-label' for='filebutton_img'><?php echo $lt->admin__action__add_a_question->upload_photo; ?></label>
 				  <div class='col-md-4'>
 					<input name='new_question[filebutton_img]' class='input-file' type='file' />
 				  </div>
@@ -89,7 +89,7 @@
 
 				<!-- Prepended checkbox -->
 				<div class='form-group'>
-				  <label class='col-md-4 control-label' for='prependedcheckbox_0'>Antworten:</label>
+				  <label class='col-md-4 control-label' for='prependedcheckbox_0'><?php echo $lt->admin__action__add_a_question->answers; ?></label>
 				  <div class='col-md-5'>
 					<div class='input-group'>
 					  <span class='input-group-addon'>     
@@ -147,7 +147,7 @@
 				<div class='form-group'>
 				  <label class='col-md-4 control-label' for='singlebutton_submit'></label>
 				  <div class='col-md-4'>
-					<button class='btn btn-success'>speichern</button>
+					<button class='btn btn-success'><?php echo $lt->admin__action__add_a_question->submit; ?></button>
 				  </div>
 				</div>
 

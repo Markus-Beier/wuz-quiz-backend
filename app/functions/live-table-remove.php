@@ -7,8 +7,6 @@
 	  $table = $_GET['table'];
 	  if ($table == 'question'){
 		$result = (new db)->query('DELETE FROM ' . $table . ' WHERE id=\'' . $id . '\';');
-	  } else if ($table == 'answer_choice'){
-		$result = (new db)->query('DELETE FROM ' . $table . ' WHERE question_id=\'' . $id . '\';');
 	  }
 	  if($result)
 		echo 'success';

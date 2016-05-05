@@ -1,22 +1,28 @@
 {
-   "index": {
-      "Add_a_quiz": "Add a quiz",
-      "Add_a_question": "Add a question",
-      "Manage_questions": "Manage questions",
-      "Database": "Database",
-      "Show_database": "Show database",
-      "Signed_in_as": "Signed in as",
-      "Logout": "Logout"
-   },
- 
-   "navbar_top": {
-      "Add_a_quiz": "Add a quiz",
-      "Add_a_question": "Add a question",
-      "Manage_questions": "Manage questions",
-      "Database": "Database",
-      "Show_database": "Show database",
-      "Signed_in_as": "Signed in as",
-      "Logout": "Logout"
-   }
- 
+	"admin__action__1": {
+      "h1": "Admin-Configuration v1.0",
+	  "p": "This interface is for creating and editing quizzes."
+	},
+
+	"admin__action__add_a_question": {
+      "h2": "Add a question:",
+	  "p": "In this interface you can add questions.",
+	  "create_quiz_question": "Create quiz-question",
+	  "select_board": "Select board:",
+	  "question": "Question:",
+	  "upload_photo": "Upload photo:",
+	  "answers": "Answers:",
+	  "submit": "submit"
+	},
+
+	"navbar_top": {
+	  "Add_a_quiz": "Add a quiz",
+	  "Add_a_question": "Add a question",
+	  "Manage_questions": "Manage questions",
+	  "Database": "Database",
+	  "Show_database": "Show database",
+	  "Signed_in_as": "Signed in as",
+	  "Logout": "Logout"
+	}
+
 }

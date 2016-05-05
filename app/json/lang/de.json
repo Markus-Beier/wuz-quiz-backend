@@ -1,22 +1,28 @@
 {
-   "index": {
-      "Add_a_quiz": "Quiz hinzufügen",
-      "Add_a_question": "Frage hinzufügen",
-      "Manage_questions": "Fragen verwalten",
-      "Database": "Datenbank",
-      "Show_database": "Datenbank anzeigen",
-      "Signed_in_as": "Eingeloggt als",
-      "Logout": "Abmelden/Logout"
-   },
- 
-   "navbar_top": {
-      "Add_a_quiz": "Quiz hinzufügen",
-      "Add_a_question": "Frage hinzufügen",
-      "Manage_questions": "Fragen verwalten",
-      "Database": "Datenbank",
-      "Show_database": "Datenbank anzeigen",
-      "Signed_in_as": "Eingeloggt als",
-      "Logout": "Abmelden/Logout"
-   }
- 
+	"admin__action__1": {
+      "h1": "Administrations-Webinterface v1.0",
+	  "p": "In diesem Interface werden Quizze erstellt & editiert."
+	},
+
+	"admin__action__add_a_question": {
+      "h2": "Füge eine Quiz-Frage hinzu:",
+	  "p": "In diesem Interface werden Quiz-Fragen erstellt.",
+	  "create_quiz_question": "Quiz-Frage erstellen",
+	  "select_board": "Tafel/Quiz auswählen:",
+	  "question": "Frage:",
+	  "upload_photo": "Foto hochladen:",
+	  "answers": "Antworten:",
+	  "submit": "speichern"
+	},
+
+	"navbar_top": {
+	  "Add_a_quiz": "Quiz hinzufügen",
+	  "Add_a_question": "Frage hinzufügen",
+	  "Manage_questions": "Fragen verwalten",
+	  "Database": "Datenbank",
+	  "Show_database": "Datenbank anzeigen",
+	  "Signed_in_as": "Eingeloggt als",
+	  "Logout": "Abmelden/Logout"
+	}
+
 }

@@ -10,7 +10,7 @@ $behavior = new loginCheck;
 ($_GET['lang']) ? $lang=$_GET['lang'] : $lang=LANG;
 $action = $_GET['action'];
 
-$lt = (new language($lang))->translate(); /* Language Translator => lt */
+$lt = (new language($lang))->translate(); /* lt => Language Translator */
 ?>
 <!DOCTYPE html>
 <html lang='<?php echo $lang; ?>'>

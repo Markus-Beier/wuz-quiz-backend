@@ -13,8 +13,7 @@ class db {
 		mysqli_close($conn);		
 	}
 	function query($sql){
-		require('config.inc.php');
-		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
+		$conn= $this->connect(DB_IP, DB_USER, DB_PW, DB_DB);
 		$result = $conn->query($sql);
 		if (!$result) {
 			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
@@ -23,8 +22,7 @@ class db {
 		return $result;
 	}
 	function query_id($sql){
-		require('config.inc.php');
-		$conn= $this->connect($db_ip, $db_user, $db_pw, $db_db);
+		$conn= $this->connect(DB_IP, DB_USER, DB_PW, DB_DB);
 		$result = array();
 		$result['db_erg'] = $conn->query($sql);
 		$result['id'] = mysqli_insert_id($conn);
