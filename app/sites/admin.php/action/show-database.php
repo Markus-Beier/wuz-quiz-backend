@@ -39,7 +39,9 @@
 		  `question_id` smallint(6) NOT NULL,
 		  `answer` tinytext CHARACTER SET utf8 NOT NULL,
 		  `correct` tinyint(1) NOT NULL,
-		  PRIMARY KEY (`id`)
+		  PRIMARY KEY (`id`),
+		  KEY `FOREIGN` (`question_id`),
+		  CONSTRAINT `answer_choice_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
 	  // created(__FUNCTION__);
