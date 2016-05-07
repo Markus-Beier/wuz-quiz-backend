@@ -16,7 +16,7 @@ class db {
 		$conn= $this->connect(DB_IP, DB_USER, DB_PW, DB_DB);
 		$result = $conn->query($sql);
 		if (!$result) {
-			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
+			echo '<b>$result may be NULL</b> -- Konnte Abfrage (<font color=\'red\'>' . $sql . '</font>) nicht erfolgreich ausführen: ' . mysqli_error($conn) . '<br />';
 		}
 		$this->disconnect($conn);
 		return $result;
@@ -27,7 +27,7 @@ class db {
 		$result['db_erg'] = $conn->query($sql);
 		$result['id'] = mysqli_insert_id($conn);
 		if (!$result) {
-			echo '$result may be NULL -- Konnte Abfrage (' . $sql . ') nicht erfolgreich ausführen: ' . mysqli_error($conn);
+			echo '<b>$result may be NULL</b> -- Konnte Abfrage (<font color=\'red\'>' . $sql . '</font>) nicht erfolgreich ausführen: ' . mysqli_error($conn) . '<br />';
 		}
 		$this->disconnect($conn);
 		return $result;
@@ -82,7 +82,7 @@ class language {
 	public $data;
 	function __construct($language) {
 		// $data = file_get_contents(json/lang/$language . '.json');
-		$data = file_get_contents('http://markus.zapto.org/json/lang/' . $language . '.json'); // !!!!!!!!!!!!!!!!!   EDIT   !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		$data = file_get_contents('json/lang/' . $language . '.json');
 		$this->data = json_decode($data);
 	}
 	function translate() {

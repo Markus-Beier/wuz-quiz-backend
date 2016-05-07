@@ -4,27 +4,32 @@
   $create = new create;
 
   $alerts = array(
-	'table_structure_created_answer_choice' => array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_answer_choice,
+	'table_structure_created_answer_choice'		=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_answer_choice,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_board'			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_board,
+	'table_structure_created_board'				=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_board,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_question' 		=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_question,
+	'table_structure_created_question'			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_question,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_scores' 		=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_scores,
+	'table_structure_created_scores'			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_scores,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_user' 			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_user,
+	'table_structure_created_user'				=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_user,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
+														'dismissible' => true
+														),
+	'table_structure_created_question_images'	=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_question_images,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
@@ -32,7 +37,7 @@
   );
 
   class create{
-	function answer_choice(){
+	function answer_choice($alerts){
 	  (new db)->query('
 		CREATE TABLE IF NOT EXISTS `answer_choice` (
 		  `id` smallint(6) NOT NULL AUTO_INCREMENT,
@@ -44,9 +49,11 @@
 		  CONSTRAINT `answer_choice_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
-	  // created(__FUNCTION__);
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
 	}
-	function board(){
+	function board($alerts){
 	  (new db)->query('
 		CREATE TABLE IF NOT EXISTS `board` (
 		  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -54,9 +61,11 @@
 		  PRIMARY KEY (`id`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
-	  // created(__FUNCTION__);
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
 	}
-	function question(){
+	function question($alerts){
 	  (new db)->query('
 		CREATE TABLE IF NOT EXISTS `question` (
 		  `id` smallint(6) NOT NULL AUTO_INCREMENT,
@@ -68,9 +77,27 @@
 		  PRIMARY KEY (`id`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
-	  // created(__FUNCTION__);
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
 	}
-	function scores(){
+	function question_images($alerts){
+	  (new db)->query('
+		CREATE TABLE IF NOT EXISTS `question_images` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `question_id` smallint(6) NOT NULL,
+		  `image` MEDIUMBLOB NOT NULL,
+		  `mimetype` VARCHAR(32) NOT NULL,
+		  PRIMARY KEY (`id`),
+		  KEY `FOREIGN` (`question_id`),
+		  CONSTRAINT `question_images_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	  ');
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
+	}
+	function scores($alerts){
 	  (new db)->query('
 		CREATE TABLE IF NOT EXISTS `scores` (
 		  `user_id` int(11) NOT NULL,
@@ -80,9 +107,11 @@
 		  PRIMARY KEY (`user_id`,`board_id`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
-	  // created(__FUNCTION__);
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
 	}
-	function user(){
+	function user($alerts){
 	  (new db)->query('
 		CREATE TABLE IF NOT EXISTS `user` (
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -92,12 +121,10 @@
 		  PRIMARY KEY (`id`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
-	  // created(__FUNCTION__);
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
 	}
-  }
-  
-  function created($db_table){
-	echo (bootstrap_alert($alerts, 'table_structure_created_' . $db_table));
   }
 ?>
 
@@ -128,8 +155,7 @@
 				<?php
 					if (!(new db)->query('DESCRIBE `question`')){
 					  // Create table structure wuz.question
-					  $create->question();
-					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'question'));
+					  $create->question($alerts);
 					}
 					$result = (new db)->query('SELECT * FROM `question`');
 					while($row = $result->fetch_assoc()){
@@ -163,8 +189,7 @@
 				<?php
 					if (!(new db)->query('DESCRIBE `answer_choice`')){
 					  // Create table structure wuz.answer_choice
-					  $create->answer_choice();
-					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'answer_choice'));
+					  $create->answer_choice($alerts);
 					}
 					$result = (new db)->query('SELECT * FROM `answer_choice`');
 					while($row = $result->fetch_assoc()){
@@ -198,8 +223,7 @@
 				<?php
 					if (!(new db)->query('DESCRIBE `board`')){
 					  // Create table structure wuz.board
-					  $create->board();
-					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'board'));
+					  $create->board($alerts);
 					}
 					$result = (new db)->query('SELECT * FROM `board`');
 					while($row = $result->fetch_assoc()){
@@ -234,8 +258,7 @@
 -->				<?php
 					if (!(new db)->query('DESCRIBE `user`')){
 					  // Create table structure wuz.user
-					  $create->user();
-					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'user'));
+					  $create->user($alerts);
 					}
 /*					$result = (new db)->query('SELECT * FROM `user`');
 					while($row = $result->fetch_assoc()){
@@ -267,8 +290,7 @@
 -->				<?php
 					if (!(new db)->query('DESCRIBE `scores`')){
 					  // Create table structure wuz.scores
-					  $create->scores();
-					  echo (bootstrap_alert($alerts, 'table_structure_created_' . 'scores'));
+					  $create->scores($alerts);
 					}
 /*					$result = (new db)->query('SELECT * FROM `scores`');
 					while($row = $result->fetch_assoc()){
@@ -283,5 +305,11 @@
 */				?>	
 <!--		  </tbody>
 			</table>
--->		  </div>
+-->			<?php
+				if (!(new db)->query('DESCRIBE `question_images`')){
+				  // Create table structure wuz.question_images
+				  $create->question_images($alerts);
+				}
+			?>
+		  </div>
 		</div>

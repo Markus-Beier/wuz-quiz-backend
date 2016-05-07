@@ -52,6 +52,7 @@
 	  "alert__table_structure_created_question": "Table structure for `question` successfully created!",
 	  "alert__table_structure_created_scores": "Table structure for `scores` successfully created!",
 	  "alert__table_structure_created_user": "Table structure for `user` successfully created!",
+	  "alert__table_structure_created_question_images": "Table structure for `question_images` successfully created!",
 	  "": "",
 	  "": "",
 	  "": "",
