@@ -87,6 +87,7 @@
 		  `id` int(11) NOT NULL AUTO_INCREMENT,
 		  `question_id` smallint(6) NOT NULL,
 		  `image` MEDIUMBLOB NOT NULL,
+		  `image_size_MB` DECIMAL(4,2) NOT NULL,
 		  `mimetype` VARCHAR(32) NOT NULL,
 		  PRIMARY KEY (`id`),
 		  KEY `FOREIGN` (`question_id`),

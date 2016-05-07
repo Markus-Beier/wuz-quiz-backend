@@ -7,6 +7,8 @@
 				print_r($_POST);
 				echo 'GET - ';
 				print_r($_GET);
+				echo 'FILES - ';
+				print_r($_FILES);
 				echo '</pre>';
 
 				if (isset($_POST['new_question'])) {
@@ -17,10 +19,7 @@
 					$time = date('Y-m-d H:i:s');
 					
 					$type = 0;
-					// Formular abgeschickt
 					if(isset($_FILES['image'])) {
-
-						// Datei hochgeladen
 						if(is_uploaded_file($_FILES['image']['tmp_name'])) {
 							$type = 5;
 						}
@@ -51,23 +50,57 @@
 						$correct = 1;
 					}
 					$db_erg_answer0 = $db->query('INSERT INTO `answer_choice` (`question_id`, `answer`, `correct`) VALUES (\'' . $db_erg_question['id'] . '\', \'' . $new_question_database['prependedcheckbox_3'] . '\', \'' . $correct . '\')');
-					
-					
+
+
 					if($type == 5) {
-						// Verweis auf Bild
+
+						function getMIME_Type($inputFile){
+							$meta = getimagesize($inputFile);
+							$mime = $meta['mime'];
+							return $mime;
+						}
+						function getFileSizeMB($inputFile){
+							return number_format((filesize($inputFile) / 1000000), 2, '.', ',');
+						}
+						function png2jpg($inputFile, $outputFile) {
+							echo '<b>converting:</b> ' . $inputFile . ' <b>-></b> ' . $outputFile . '<br />';
+							$image = imagecreatefrompng($inputFile);
+							// imagejpeg($image, $outputFile, $quality);
+							imagejpeg($image, $outputFile);
+							imagedestroy($image);
+							echo '<b>returning converted image:</b> ' . $outputFile . '<br />';
+							return $outputFile;
+						}
+
+						// file path to uploaded image in tmp-folder
 						$image = $_FILES['image']['tmp_name'];
+						  /*
+							    [image] => Array
+									(
+										[name] => original_filename.png
+										[type] => image/png
+										[tmp_name] => /tmp/phpeSBWrK		<---- file path
+										[error] => 0
+										[size] => 2955306
+									)
+						  */
 
-						// Vorbereiten für den Upload in DB
+						if (getMIME_Type($image) == 'image/png'){
+							echo '<b>uploaded image:</b> ' . $image . ' [' . getMIME_Type($image) . ' - <b>' . getFileSizeMB($image) . '</b> MB]' . '<br />';
+							$image = png2jpg($image, $image . '_new');
+							echo '<b>converted image:</b> ' . $image . ' [' . getMIME_Type($image) . ' - <b>' . getFileSizeMB($image) . '</b> MB]' . '<br />';
+						}
+
+						// Collecting data for Database Upload
+						$question_id = $db_erg_question['id'];
 						$data = addslashes(file_get_contents($image));
+						$image_size_MB = getFileSizeMB($image);
+						$mime = getMIME_Type($image);
 
-						// Metadaten auslesen
-						$meta = getimagesize($image);
-						$mime = $meta['mime'];
-
-						// Bild in DB speichern
+						// Initializing Upload to Database
 						(new db)->query('
-						 INSERT INTO `question_images` (`question_id`, `image`, `mimetype`) VALUES (
-						 \'' . $db_erg_question['id'] . '\', \'' . $data . '\', \'' . $mime . '\');
+						 INSERT INTO `question_images` (`question_id`, `image`, `image_size_MB`, `mimetype`) VALUES (
+						 \'' . $question_id . '\', \'' . $data . '\', \'' . $image_size_MB . '\', \'' . $mime . '\');
 						');
 					}
 				}

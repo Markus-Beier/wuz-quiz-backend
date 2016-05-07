@@ -81,7 +81,6 @@ class loginCheck {
 class language {
 	public $data;
 	function __construct($language) {
-		// $data = file_get_contents(json/lang/$language . '.json');
 		$data = file_get_contents('json/lang/' . $language . '.json');
 		$this->data = json_decode($data);
 	}
