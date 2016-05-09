@@ -23,6 +23,16 @@
 	},
 
 
+	"admin__action__manage_questions": {
+      "h2": "Manage your quiz-questions:",
+	  "p": "In this interface you can manage your quiz questions.",
+	  "q_type__single_choice": "SingleChoice",
+	  "q_type__image_single_choice": "ImageSingleChoice",
+	  "q_type__error": "Error: Couldn't get question type!",
+	  "no_board_selected": "Please select a board to manage it's questions."
+	},
+
+
 	"admin__action__show_database": {
       "h2": "Quiz-Overview:",
 	  "p": "This interface shows editable quizzes.",

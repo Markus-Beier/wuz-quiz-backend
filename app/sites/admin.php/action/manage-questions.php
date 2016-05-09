@@ -1,7 +1,7 @@
 		<div class='container'>
 			<div class='jumbotron'>
-				<h2>Verwalten Sie ihre Quiz-Fragen:</h2>
-				<p>In diesem Interface werden Quiz-Fragen verwaltet.</p>
+				<h2><?php echo $lt->admin__action__manage_questions->h2; ?></h2>
+				<p><?php echo $lt->admin__action__manage_questions->p; ?></p>
 
 				<form class='form-horizontal' method='GET'>
 					<?php
@@ -57,9 +57,11 @@
 					$boards = (new db)->query('SELECT * FROM `question` WHERE `board`=\'' . $_GET['manage_quiz'] . '\'');
 					while ($row = $boards->fetch_assoc()) {
 						if ($row['type'] == 0) {
-							$type = 'Normale Frage';
+							$type = $lt->admin__action__manage_questions->q_type__single_choice;
+						} else if ($row['type'] == 5){
+							$type = $lt->admin__action__manage_questions->q_type__image_single_choice;
 						} else {
-							$type = '<b>Question type error!</b>';
+							$type = '<b>' . $lt->admin__action__manage_questions->q_type__error . '</b>';
 						}
 
 						$active = '';
@@ -70,27 +72,27 @@
 						$questiontext = '#' . $row['id'] . ' | ' . $row['question'] . ' - ' . $type . $active . ' | ' . $row['creation'];
 						echo '<div class=\'input-group\'>
 								<span class=\'input-group-btn\'>
-									<button class=\'btn btn-default\' type=\'button\'><i class=\'glyphicon glyphicon-pencil\'></i>Bearbeiten</button>
+									<button class=\'btn btn-default\' type=\'button\'><span class=\'glyphicon glyphicon-pencil\' /> Bearbeiten</button>
 								</span>
 								<span class=\'input-group-addon form-control\' id=\'einfaches-addon1\' style=\'text-align: left;\'>'. $questiontext .'</span>
 								<span class=\'input-group-btn\'>
-									<button class=\'btn btn-danger\' type=\'button\'><i class=\'glyphicon glyphicon-remove\'></i>Löschen</button>
+									<button class=\'btn btn-danger\' type=\'button\'><span class=\'glyphicon glyphicon-remove\' /> Löschen</button>
 								</span>
 							</div>';
 					}
 				} else {
-					echo '<p>Bitte wählen Sie ein Quiz zum Verwalten aus.</p>';
+					echo '<p>' . $lt->admin__action__manage_questions->no_board_selected . '</p>';
 				}
 				?>
 
 				<!--
 				<div class='input-group'>
 					<span class='input-group-btn'>
-						<button class='btn btn-default' type='button'><i class='glyphicon glyphicon-pencil'></i>Bearbeiten</button>
+						<button class='btn btn-default' type='button'><span class='glyphicon glyphicon-pencil' /> Bearbeiten</button>
 					</span>
 					<span class='input-group-addon form-control' id='einfaches-addon1' style='text-align: left;'>Frage? - Aktiv - Art - Erstellungsdatum</span>
 					<span class='input-group-btn'>
-						<button class='btn btn-danger' type='button'><i class='glyphicon glyphicon-remove'></i>Löschen</button>
+						<button class='btn btn-danger' type='button'><span class='glyphicon glyphicon-remove' /> Löschen</button>
 					</span>
 				</div>
 				-->
