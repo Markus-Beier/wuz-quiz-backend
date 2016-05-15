@@ -76,6 +76,8 @@
 
 
 	"navbar_top": {
+	  "wuz_admin_configuration": "WUZ Admin-Configuration",
+	  "Home": "Home",
 	  "Add_a_quiz": "Add a quiz",
 	  "Add_a_question": "Add a question",
 	  "Manage_questions": "Manage questions",

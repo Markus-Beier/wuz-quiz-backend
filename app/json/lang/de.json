@@ -76,6 +76,8 @@
 
 
 	"navbar_top": {
+	  "wuz_admin_configuration": "WUZ Administrations-Webinterface",
+	  "Home": "Startseite",
 	  "Add_a_quiz": "Quiz hinzufügen",
 	  "Add_a_question": "Frage hinzufügen",
 	  "Manage_questions": "Fragen verwalten",

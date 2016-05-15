@@ -8,11 +8,11 @@
 			<span class='icon-bar'></span>
 			<span class='icon-bar'></span>
 		  </button>
-		  <a class='navbar-brand' href='/?<?php echo 'lang=' . $lang; ?>'>WUZ Admin-Configuration <?php echo $langtrans->index->Database; ?></a>
+		  <a class='navbar-brand' href='<?php echo INSTALL_DIR . '/?' . 'lang=' . $lang; ?>'><?php echo $lt->navbar_top->wuz_admin_configuration; ?></a>
 		</div>
 		<div id='navbar' class='navbar-collapse collapse'>
 		  <ul class='nav navbar-nav'>
-			<li class='active'><a href='/?<?php echo 'lang=' . $lang; ?>'><span class='glyphicon glyphicon-home' aria-hidden='true'></span> Home</a></li>
+			<li class='active'><a href='<?php echo INSTALL_DIR . '/?' . 'lang=' . $lang; ?>'><span class='glyphicon glyphicon-home' aria-hidden='true'></span> <?php echo $lt->navbar_top->Home; ?></a></li>
 			<li class='dropdown'>
 			  <a href='' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>
 			  <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span> Quiz-Editor <span class='caret'></span></a>
@@ -57,10 +57,10 @@
 					  </script></b>
 					</a></li>
 				<li role='separator' class='divider'></li>
-				<li><a href=''>Another action</a></li>
+<!--			<li><a href=''>Another action</a></li>
 				<li><a href=''>Something else here</a></li>
 				<li role='separator' class='divider'></li>
-				<li class='dropdown-header'>Admin</li>
+-->				<li class='dropdown-header'>Admin</li>
 				<li><a href='logout.php'><span class='glyphicon glyphicon-off'></span> <?php echo $lt->navbar_top->Logout; ?></a></li>
 			  </ul>
 			</li>

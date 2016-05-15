@@ -2,9 +2,8 @@
 class db {
 	function connect($host, $user, $pw, $db){
 		$conn = new mysqli($host, $user, $pw, $db);
-		if (!$conn) {
-			echo 'Keine Verbindung zu DB möglich: ' . mysql_error();
-			exit;
+		if ($conn->connect_error) {
+			die('Keine Verbindung zu DB möglich.<br /><b>Connect Error</b>: <i>' . $conn->connect_error) . '</i></font><br />';
 		}
 		$conn->query('SET NAMES \'utf8\'');
 		return $conn;
@@ -16,7 +15,7 @@ class db {
 		$conn= $this->connect(DB_IP, DB_USER, DB_PW, DB_DB);
 		$result = $conn->query($sql);
 		if (!$result) {
-			echo '<b>$result may be NULL</b> -- Konnte Abfrage (<font color=\'red\'>' . $sql . '</font>) nicht erfolgreich ausführen: ' . mysqli_error($conn) . '<br />';
+			echo '<b>$result may be NULL</b> -- Konnte Abfrage (<font color=\'red\'>' . $sql . '</font>) nicht erfolgreich ausführen.<br /><b>Error</b>: <i>' . $conn->error . '</i><br />';
 		}
 		$this->disconnect($conn);
 		return $result;
@@ -27,7 +26,7 @@ class db {
 		$result['db_erg'] = $conn->query($sql);
 		$result['id'] = mysqli_insert_id($conn);
 		if (!$result) {
-			echo '<b>$result may be NULL</b> -- Konnte Abfrage (<font color=\'red\'>' . $sql . '</font>) nicht erfolgreich ausführen: ' . mysqli_error($conn) . '<br />';
+			echo '<b>$result may be NULL</b> -- Konnte Abfrage (<font color=\'red\'>' . $sql . '</font>) nicht erfolgreich ausführen.<br /><b>Error</b>: <i>' . $conn->error . '</i><br />';
 		}
 		$this->disconnect($conn);
 		return $result;

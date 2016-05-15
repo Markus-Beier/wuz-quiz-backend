@@ -7,6 +7,7 @@
   define('DB_DB',						'');
 
 /* GENERAL */
+  define('INSTALL_DIR',					'/dir');
   define('LANG',						'de');
 
 /* LOGIN CONFIGURATION */
