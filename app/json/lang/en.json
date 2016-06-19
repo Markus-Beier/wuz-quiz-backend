@@ -55,10 +55,14 @@
 	  "id_TINYINT": "id<br />[TINYINT]",
 	  "title_TINYTEXT": "title<br />[TINYTEXT]",
 
+	  "table_group": "table \"group\"",
+	  "id_TINYINT": "id<br />[TINYINT]",
+
 	  "alerts_success": "success",
 	  "alerts_success_title": "Well done!",
 	  "alert__table_structure_created_answer_choice": "Table structure for `answer_choice` successfully created!",
 	  "alert__table_structure_created_board": "Table structure for `board` successfully created!",
+	  "alert__table_structure_created_group": "Table structure for `group` successfully created!",
 	  "alert__table_structure_created_question": "Table structure for `question` successfully created!",
 	  "alert__table_structure_created_scores": "Table structure for `scores` successfully created!",
 	  "alert__table_structure_created_user": "Table structure for `user` successfully created!",

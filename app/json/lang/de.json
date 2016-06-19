@@ -51,14 +51,18 @@
 	  "answer_TINYTEXT": "Antwort",
 	  "correct_BOOLEAN": "Korrekte Antwort",
 
-	  "table_board": "Tabelle Tafel-/Quiz-Nummer",
+	  "table_board": "Tabelle: Tafel-/Quiz-Nummer",
 	  "id_TINYINT": "Tafel-/Quiz-Nummer",
 	  "title_TINYTEXT": "Titel der Tafel / des Quiz",
+
+	  "table_group": "Tabelle: Gruppen",
+	  "id_TINYINT": "Gruppen-Nummer",
 
 	  "alerts_success": "success",
 	  "alerts_success_title": "Super!",
 	  "alert__table_structure_created_answer_choice": "Tabellenstruktur für `answer_choice` erfolgreich erstellt!",
 	  "alert__table_structure_created_board": "Tabellenstruktur für `board` erfolgreich erstellt!",
+	  "alert__table_structure_created_group": "Tabellenstruktur für `group` erfolgreich erstellt!",
 	  "alert__table_structure_created_question": "Tabellenstruktur für `question` erfolgreich erstellt!",
 	  "alert__table_structure_created_scores": "Tabellenstruktur für `scores` erfolgreich erstellt!",
 	  "alert__table_structure_created_user": "Tabellenstruktur für `user` erfolgreich erstellt!",

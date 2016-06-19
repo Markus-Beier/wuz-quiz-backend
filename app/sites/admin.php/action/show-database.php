@@ -14,6 +14,11 @@
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
+	'table_structure_created_group'	=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_group,
+														'context' => $lt->admin__action__show_database->alerts_success,
+														'title'   => $lt->admin__action__show_database->alerts_success_title,
+														'dismissible' => true
+														),
 	'table_structure_created_question'			=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_question,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
@@ -58,6 +63,19 @@
 		CREATE TABLE IF NOT EXISTS `board` (
 		  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
 		  `title` tinytext CHARACTER SET utf8 NOT NULL,
+		  PRIMARY KEY (`id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	  ');
+	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
+		echo (bootstrap_alert($alerts, 'table_structure_created_' . __FUNCTION__));
+	  }
+	}
+	function group($alerts){
+	  (new db)->query('
+		CREATE TABLE IF NOT EXISTS `group` (
+		  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+		  `name` VARCHAR(32) CHARACTER SET utf8 NOT NULL,
+		  `active` tinyint(1) NOT NULL,
 		  PRIMARY KEY (`id`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
@@ -119,7 +137,10 @@
 		  `newsletter_subscribed` tinyint(1) NOT NULL,
 		  `name` varchar(50) DEFAULT NULL,
 		  `email` varchar(100) DEFAULT NULL,
-		  PRIMARY KEY (`id`)
+		  `group_id` smallint(5) unsigned NOT NULL,
+		  PRIMARY KEY (`id`),
+		  KEY `FOREIGN` (`group_id`),
+		  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	  ');
 	  if ((new db)->query('SHOW TABLES LIKE \'' . __FUNCTION__ . '\'')){
@@ -233,6 +254,37 @@
 				  <td><a class=\'btn btn-default\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
 				  <td>' . $row['id'] . '</td>
 				  <td><span class=\'xedit-text\' id=\'' . $row['id'] . '\' table=\'board\' key=\'title\'>' . $row['title'] . '</span></td>
+				</tr>';
+					}
+				?>	
+			  </tbody>
+			</table>
+			<table class= "table table-striped table-bordered table-hover dataTable" id="datatable">
+			  <thead>
+				<tr>
+				  <th colspan='2' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->table_group; ?></th>
+				</tr>
+				<tr>
+				  <th colspan='1' rowspan='1'  tabindex='0' width='1em'>
+					<span style='width: 100%; height: 100%; text-align: center; line-height: 3em; vertical-align: middle;'
+					class='glyphicon glyphicon-cog'>
+					</span>
+				  </th>
+				  <th colspan='1' rowspan='1'  tabindex='0'><?php echo $lt->admin__action__show_database->id_TINYINT; ?></th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<?php
+					if (!(new db)->query('DESCRIBE `group`')){
+					  // Create table structure wuz.group
+					  $create->group($alerts);
+					}
+					$result = (new db)->query('SELECT * FROM `group`');
+					while($row = $result->fetch_assoc()){
+						echo '
+				<tr>
+				  <td><a class=\'btn btn-default\'><span class=\'glyphicon glyphicon-trash\'></span></a></td>
+				  <td>' . $row['id'] . '</td>
 				</tr>';
 					}
 				?>	
