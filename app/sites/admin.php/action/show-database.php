@@ -14,7 +14,7 @@
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
 														),
-	'table_structure_created_group'	=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_group,
+	'table_structure_created_group'				=> array(	'message' => $lt->admin__action__show_database->alert__table_structure_created_group,
 														'context' => $lt->admin__action__show_database->alerts_success,
 														'title'   => $lt->admin__action__show_database->alerts_success_title,
 														'dismissible' => true
