@@ -3,6 +3,59 @@
 			<h2><?php echo $lt->admin__action__add_a_question->h2; ?></h2>
 			<p><?php echo $lt->admin__action__add_a_question->p; ?></p>
 			<?php
+				// $_SERVER Array (Gesamtausgabe)
+				/*$indicesServer = array('PHP_SELF',
+				'argv',
+				'argc',
+				'GATEWAY_INTERFACE',
+				'SERVER_ADDR',
+				'SERVER_NAME',
+				'SERVER_SOFTWARE',
+				'SERVER_PROTOCOL',
+				'REQUEST_METHOD',
+				'REQUEST_TIME',
+				'REQUEST_TIME_FLOAT',
+				'QUERY_STRING',
+				'DOCUMENT_ROOT',
+				'HTTP_ACCEPT',
+				'HTTP_ACCEPT_CHARSET',
+				'HTTP_ACCEPT_ENCODING',
+				'HTTP_ACCEPT_LANGUAGE',
+				'HTTP_CONNECTION',
+				'HTTP_HOST',
+				'HTTP_REFERER',
+				'HTTP_USER_AGENT',
+				'HTTPS',
+				'REMOTE_ADDR',
+				'REMOTE_HOST',
+				'REMOTE_PORT',
+				'REMOTE_USER',
+				'REDIRECT_REMOTE_USER',
+				'SCRIPT_FILENAME',
+				'SERVER_ADMIN',
+				'SERVER_PORT',
+				'SERVER_SIGNATURE',
+				'PATH_TRANSLATED',
+				'SCRIPT_NAME',
+				'REQUEST_URI',
+				'PHP_AUTH_DIGEST',
+				'PHP_AUTH_USER',
+				'PHP_AUTH_PW',
+				'AUTH_TYPE',
+				'PATH_INFO',
+				'ORIG_PATH_INFO') ;
+
+				echo '<table cellpadding="10">' ;
+				foreach ($indicesServer as $arg) {
+				    if (isset($_SERVER[$arg])) {
+				        echo '<tr><td>'.$arg.'</td><td>' . $_SERVER[$arg] . '</td></tr>' ;
+				    }
+				    else {
+				        echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
+				    }
+				}
+				echo '</table>' ; */
+
 				echo '<pre>POST - ';
 				print_r($_POST);
 				echo 'GET - ';
@@ -27,7 +80,22 @@
 
 					$db_erg_question = $db->query_id('INSERT INTO `question` (`question`, `type`, `creation`, `board`, `active`) VALUES ( \'' . $new_question_database['textinput_question'] . '\',' . $type . ', \'' . $time . '\', \'' . $new_question_database['selectbasic_board'] . '\', 1)');
 
-					$correct = 0;
+
+					$i = 0;
+					while (isset($new_question_database['prependedcheckbox_'. $i])) {
+						if ($new_question_database['prependedcheckbox_'. $i] != "") {
+							$correct = 0;
+
+							if (isset($new_question_database['prependedcheckbox_'. $i .'_correct'])) {
+								$correct = 1;
+							}
+
+							$db_erg_answer0 = $db->query('INSERT INTO `answer_choice` (`question_id`, `answer`, `correct`) VALUES (\'' . $db_erg_question['id'] . '\', \'' . $new_question_database['prependedcheckbox_'. $i] . '\', \'' . $correct . '\')');
+						}
+						$i++;
+					} 
+
+					/*$correct = 0;
 					if (isset($new_question_database['prependedcheckbox_0_correct'])) {
 						$correct = 1;
 					}
@@ -49,7 +117,7 @@
 					if (isset($new_question_database['prependedcheckbox_3_correct'])) {
 						$correct = 1;
 					}
-					$db_erg_answer0 = $db->query('INSERT INTO `answer_choice` (`question_id`, `answer`, `correct`) VALUES (\'' . $db_erg_question['id'] . '\', \'' . $new_question_database['prependedcheckbox_3'] . '\', \'' . $correct . '\')');
+					$db_erg_answer0 = $db->query('INSERT INTO `answer_choice` (`question_id`, `answer`, `correct`) VALUES (\'' . $db_erg_question['id'] . '\', \'' . $new_question_database['prependedcheckbox_3'] . '\', \'' . $correct . '\')');*/
 
 
 					if($type == 5) {
@@ -105,8 +173,8 @@
 					}
 				}
 			?>
-			<form class='form-horizontal' method='POST' action='.<?php
-					echo $_SERVER['REQUEST_URI'];
+			<form class='form-horizontal' method='POST' action='<?php
+					echo $_SERVER['HTTP_REFERER'];
 			 	?>' enctype='multipart/form-data'>
 				<fieldset>
 
@@ -182,7 +250,7 @@
 						  <input type='checkbox' name='new_question[prependedcheckbox_2_correct]'>
 					  </span>
 					  <input name='new_question[prependedcheckbox_2]' class='form-control' type='text'
-					  placeholder='Vor 1.500 Jahren' required='' />
+					  placeholder='Leere Antworten werden Ignoriert'/>
 					</div>
 				  </div>
 				</div>
@@ -196,7 +264,35 @@
 						  <input type='checkbox' name='new_question[prependedcheckbox_3_correct]'>
 					  </span>
 					  <input name='new_question[prependedcheckbox_3]' class='form-control' type='text'
-					  placeholder='Vor 1.500 Jahren' required='' />
+					  placeholder='Leere Antworten werden Ignoriert'/>
+					</div>
+				  </div>
+				</div>
+
+				<!-- Prepended checkbox -->
+				<div class='form-group'>
+				  <label class='col-md-4 control-label' for='prependedcheckbox_4'></label>
+				  <div class='col-md-5'>
+					<div class='input-group'>
+					  <span class='input-group-addon'>
+						  <input type='checkbox' name='new_question[prependedcheckbox_4_correct]'>
+					  </span>
+					  <input name='new_question[prependedcheckbox_4]' class='form-control' type='text'
+					  placeholder='Leere Antworten werden Ignoriert'/>
+					</div>
+				  </div>
+				</div>
+
+				<!-- Prepended checkbox -->
+				<div class='form-group'>
+				  <label class='col-md-4 control-label' for='prependedcheckbox_5'></label>
+				  <div class='col-md-5'>
+					<div class='input-group'>
+					  <span class='input-group-addon'>
+						  <input type='checkbox' name='new_question[prependedcheckbox_5_correct]'>
+					  </span>
+					  <input name='new_question[prependedcheckbox_5]' class='form-control' type='text'
+					  placeholder='Leere Antworten werden Ignoriert'/>
 					</div>
 				  </div>
 				</div>
